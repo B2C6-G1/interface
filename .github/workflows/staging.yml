@@ -3,12 +3,10 @@ name: Staging
 on:
   push:
     branches:
-      - '*'
-      - '!master'
+      - 'stag'
   pull_request:
     branches:
-      - '*'
-      - '!master'
+      - 'stag'
 
 jobs:
   laravel-tests:

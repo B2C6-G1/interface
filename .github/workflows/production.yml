@@ -2,7 +2,8 @@ name: Production
 
 on:
   push:
-    branches: [ master ]
+    branches: 
+      - '*'
   pull_request:
     branches: [ master ]
 
@@ -40,3 +41,14 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "b2c6-interface"
+          heroku_email: "drenthjoey@gmail.com"
+

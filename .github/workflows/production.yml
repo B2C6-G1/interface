@@ -50,5 +50,5 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "b2c6-interface"
+          heroku_app_name: "b2c6-interface-prod"
           heroku_email: "drenthjoey@gmail.com"

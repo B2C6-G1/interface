@@ -121,7 +121,7 @@ jobs:
   # Deploy, runs only on pushes and not PR.
   deploy:
     runs-on: ubuntu-latest
-    environment: 'production'
+    environment: 'staging'
     needs: test
 
     steps:

@@ -3,11 +3,11 @@
 #  | It can be deployed to the production environment with manual confirmation.
 #  | This action runs on the master branch only..
 #  */
-name: Production (push)
+name: Production (pr)
 
-# Run on master push only.
+# Run on master pull requests.
 on:
-  push:
+  pull_request:
     branches: ['master']
 
 # Workflow jobs.
@@ -115,20 +115,3 @@ jobs:
           DB_CONNECTION: sqlite
           DB_DATABASE: database/database.sqlite
         run: vendor/bin/phpunit
-  
-  # Deploy, runs only on pushes and not PR.
-  deploy:
-    runs-on: ubuntu-latest
-    environment: 'production'
-    needs: test
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Deploy to Heroku
-        uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "b2c6-interface-prod"
-          heroku_email: "drenthjoey@gmail.com"

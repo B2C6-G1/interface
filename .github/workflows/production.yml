@@ -127,7 +127,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request'
 
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12

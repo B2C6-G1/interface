@@ -3,7 +3,7 @@
 #  | It can be deployed to the production environment with manual confirmation.
 #  | This action runs on the master branch only..
 #  */
-name: Production (push/pr)
+name: Production (push)
 
 # Run on master push only.
 on:

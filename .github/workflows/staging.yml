@@ -118,16 +118,21 @@ jobs:
           DB_DATABASE: database/database.sqlite
         run: vendor/bin/phpunit
   
+  # Deploy, runs only on pushes and not PR.
   deploy:
     runs-on: ubuntu-latest
-    environment: 'staging'
+    environment: 'production'
     needs: test
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.12
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      if: github.event_name != 'pull_request'
+
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "b2c6-interface-stag"
           heroku_email: "drenthjoey@gmail.com"
-    if: github.event_name != 'pull_request'
+      if: github.event_name != 'pull_request'

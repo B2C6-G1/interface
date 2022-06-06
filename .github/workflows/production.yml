@@ -130,4 +130,5 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "b2c6-interface-prod"
           heroku_email: "drenthjoey@gmail.com"
-    if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request'
+

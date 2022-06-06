@@ -3,7 +3,7 @@
 #  | It can be deployed to the staging environment with manual confirmation.
 #  | This action runs on all branches except the master branch.
 #  */
-name: dev
+name: Staging (push/pr)
 
 # Run on all branches except master.
 on:

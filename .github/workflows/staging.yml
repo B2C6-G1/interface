@@ -45,19 +45,19 @@ jobs:
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: ${{ runner.os }}-${{ env.GITHUB_RUN_NUMBER }}-npm
+          key: ${{ runner.os }}-${{ env.GITHUB_RUN_NUMBER }}-npm-${ secrets.CACHE_VERSION }
       
       - name: Cache composer dependencies
         uses: actions/cache@v2
         with:
           path: vendor
-          key: ${{ runner.os }}-${{ env.GITHUB_RUN_NUMBER }}-composer
+          key: ${{ runner.os }}-${{ env.GITHUB_RUN_NUMBER }}-composer-${ secrets.CACHE_VERSION }
       
       - name: Cache front-end artifacts
         uses: actions/cache@v2
         with:
           path: public
-          key: ${{ runner.os }}-${{ env.GITHUB_RUN_NUMBER }}-artifacts
+          key: ${{ runner.os }}-${{ env.GITHUB_RUN_NUMBER }}-artifacts-${ secrets.CACHE_VERSION }
   
   # Test, depends on the build stage.
   test:
@@ -84,19 +84,19 @@ jobs:
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: ${{ runner.os }}-${{ env.GITHUB_RUN_NUMBER }}-npm
+          key: ${{ runner.os }}-${{ env.GITHUB_RUN_NUMBER }}-npm-${ secrets.CACHE_VERSION }
       
       - name: Restore cached dependencies
         uses: actions/cache@v2
         with:
           path: vendor
-          key: ${{ runner.os }}-${{ env.GITHUB_RUN_NUMBER }}-composer
+          key: ${{ runner.os }}-${{ env.GITHUB_RUN_NUMBER }}-composer-${ secrets.CACHE_VERSION }
       
       - name: Restore cached artifacts
         uses: actions/cache@v2
         with:
           path: public
-          key: ${{ runner.os }}-${{ env.GITHUB_RUN_NUMBER }}-artifacts
+          key: ${{ runner.os }}-${{ env.GITHUB_RUN_NUMBER }}-artifacts-${ secrets.CACHE_VERSION }
       
       # Laravel setup steps.
       - name: Generate key

@@ -27,6 +27,7 @@ return [
 
     'teams' => [
         'base' => 'http://cl2b4-guilds.herokuapp.com',
+        'all' => '/teams/get',
     ],
 
     'guilds' => [

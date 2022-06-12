@@ -18,6 +18,7 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(ExternalApiInterface::class, BaseExternalApiRepository::class);
+        $this->app->bind(TeamsRepositoryInterface::class, TeamsRepository::class);
     }
 
     /**

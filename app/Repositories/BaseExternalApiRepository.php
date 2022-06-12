@@ -55,4 +55,14 @@ class BaseExternalApiRepository implements ExternalApiInterface
     {
         $this->endpoints = config('endpoints.' . $this->resource);
     }
+
+    /**
+     * Construct an endpoint url.
+     * 
+     * @param array $components
+     */
+    protected function makeUrl(array $components)
+    {
+        return implode("", $components);
+    }
 }

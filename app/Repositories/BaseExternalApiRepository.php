@@ -14,6 +14,13 @@ class BaseExternalApiRepository implements ExternalApiInterface
     protected string $resource;
 
     /**
+     * The endpoints associated with the resource.
+     * 
+     * @var array
+     */
+    protected array $endpoints;
+
+    /**
      * The BaseExternalApiRepository constructor.
      * 
      * @param string $resource
@@ -25,6 +32,7 @@ class BaseExternalApiRepository implements ExternalApiInterface
         }
 
         $this->resource = $resource;
+        $this->registerResourceEndpoints();
     }
 
     /**
@@ -36,5 +44,15 @@ class BaseExternalApiRepository implements ExternalApiInterface
     protected function isSupportedResource(string $resource) : bool
     {
         return in_array($resource, config('endpoints.supported'));
+    }
+
+    /**
+     * Register the resource endpoints.
+     * 
+     * @return void
+     */
+    protected function registerResourceEndpoints() : void
+    {
+        $this->endpoints = config('endpoints.' . $this->resource);
     }
 }

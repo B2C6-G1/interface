@@ -21,7 +21,7 @@ class BaseExternalApiRepository implements ExternalApiInterface
     public function __construct(string $resource)
     {
         if(!$this->isSupportedResource($resource)) {
-            throw new InvalidArgumentException('External api resource unsupported.');
+            throw new \InvalidArgumentException('External api resource unsupported.');
         }
 
         $this->resource = $resource;

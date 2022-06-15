@@ -28,14 +28,25 @@ return [
     'teams' => [
         'base' => 'http://cl2b4-guilds.herokuapp.com',
         'all' => '/teams/get',
+        'save' => '/teams/create',
+        'update' => '/teams/update',
+        'delete' => '/teams/delete'
     ],
 
     'guilds' => [
         'base' => 'http://cl2b4-guilds.herokuapp.com',
+        'all' => '/guilds/get',
+        'save' => '/guilds/create',
+        'update' => '/guilds/update',
+        'delete' => '/guilds/delete'
     ],
 
     'users' => [
-        'base' => 'http://devops-b2c6.herokuapp.com',
+        'base' => 'http://cl2b4-guilds.herokuapp.com',
+        'all' => '/users/get',
+        'save' => '/users/create',
+        'update' => '/users/update',
+        'delete' => '/users/delete'
     ],
 
     'levels' => [

@@ -126,6 +126,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      # Requires custom webpack buildpack.
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:

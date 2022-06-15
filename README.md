@@ -17,6 +17,12 @@ $ composer install
 $ npm install
 ```
 
+Compile assets
+
+```
+$ npm run dev
+```
+
 Create app key
 
 ```

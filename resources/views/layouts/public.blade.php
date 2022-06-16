@@ -10,7 +10,10 @@
     </head>
     <body class="h-full w-full bg-slate-600">
         @include('includes.navbar')
-        @yield('content')
+
+        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 mt-6">
+            @yield('content')
+        </div>
 
         <script src="{{ asset('js/app.js') }}"></script>
     </body>

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\GuildsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
+Route::get('/', [PagesController::class, 'home']);
+
+Route::prefix('app')->group(function () {
+    Route::get('/', [PagesController::class, 'home'])->name('app.home');
+
+    Route::prefix('guilds')->group(function () {
+        Route::get('/', [GuildsController::class, 'index'])->name('guilds.index');
+    });
 });

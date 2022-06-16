@@ -16,4 +16,17 @@ class GuildsRepository extends BaseExternalApiRepository implements GuildsReposi
     {
         parent::__construct($resource);
     }
+
+    /**
+     * Get all the resources from the api.
+     * 
+     * @return array
+     */
+    public function all() : array
+    {
+        $uri = $this->makeUrl([$this->endpoints['base'], $this->endpoints['all']]);
+        $response = Http::get($uri);
+
+        return json_decode($response->body());
+    }
 }

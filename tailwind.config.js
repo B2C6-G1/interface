@@ -6,6 +6,10 @@ module.exports = {
     "./resources/**/*.js",
     "./resources/**/*.vue",
   ],
+  safelist: [
+    "col-span-1",
+    "col-span-2"
+  ],
   theme: {
     extend: {
       fontFamily: {

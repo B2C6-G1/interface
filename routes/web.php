@@ -23,7 +23,9 @@ Route::prefix('app')->group(function () {
     Route::prefix('guilds')->group(function () {
         Route::get('/', [GuildsController::class, 'index'])->name('guilds.index');
         Route::get('create', [GuildsController::class, 'create'])->name('guilds.create');
+        Route::get('{id}/edit', [GuildsController::class, 'edit'])->name('guilds.edit');
 
         Route::post('store', [GuildsController::class, 'store'])->name('guilds.store');
+        Route::put('{id}/update', [GuildsController::class, 'update'])->name('guilds.update');
     });
 });

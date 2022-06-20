@@ -13,7 +13,7 @@ class GuildUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class GuildUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'max:50']
+            'name' => ['required', 'max:50'],
+            'xp' => ['numeric']
         ];
     }
 }

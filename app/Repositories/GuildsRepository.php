@@ -31,6 +31,22 @@ class GuildsRepository extends BaseExternalApiRepository implements GuildsReposi
     }
 
     /**
+     * Find a resource by it's ID.
+     * 
+     * @param int $id
+     * @return array
+     */
+    public function find(int $id) : array
+    {
+        $uri = $this->makeUrl([$this->endpoints['base'], $this->endpoints['all']]);
+        $response = Http::get($uri, [
+            'ids' => $id
+        ]);
+
+        return json_decode($response->body());
+    }
+
+    /**
      * Create a new resource with the api.
      * 
      * @param array $attributes
@@ -58,5 +74,14 @@ class GuildsRepository extends BaseExternalApiRepository implements GuildsReposi
     public function update(array $attributes, int $id) : bool
     {
         $uri = $this->makeUrl([$this->endpoints['base'], $this->endpoints['update']]);
+
+        $response = Http::put($uri, [[
+            'id' => $id,
+            'xp' => $attributes['xp'],
+            'name' => $attributes['name'],
+            'users' => []
+        ]]);
+
+        return $response->ok();
     }
 }

@@ -12,6 +12,14 @@ interface GuildsRepositoryInterface
     public function all() : array;
 
     /**
+     * Find a resource by it's ID.
+     * 
+     * @param int $id
+     * @return array
+     */
+    public function find(int $id) : array;
+
+    /**
      * Create a new resource with the api.
      * 
      * @param array $attributes

@@ -17,6 +17,9 @@
             <x-table.heading>
                 Aantal gebruikers
             </x-table.heading>
+            <x-table.heading>
+                Actions
+            </x-table.heading>
         </x-slot>
         @foreach($guilds as $guild)
             <x-table.row>
@@ -31,6 +34,9 @@
                 </x-table.data>
                 <x-table.data>
                     {{ count($guild->users) }}
+                </x-table.data>
+                <x-table.data>
+                    <a href="{{ route('guilds.edit', ['id' => $guild->id]) }}">Bewerk</a>
                 </x-table.data>
             </x-table.row>
         @endforeach  

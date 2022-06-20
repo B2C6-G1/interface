@@ -1,6 +1,6 @@
 @extends('layouts.public')
 
-@section('title', 'Nieuwe guild')
+@section('title', 'Guild bewerken')
 
 @section('content')
     <x-card header="Guildgegevens">

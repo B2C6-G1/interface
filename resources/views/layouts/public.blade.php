@@ -11,7 +11,8 @@
     <body class="h-full w-full bg-slate-600">
         @include('includes.navbar')
 
-        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 mt-6">
+        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <h1 class="text-white text-2xl font-bold my-6">@yield('title')</h1>
             @yield('content')
         </div>
 

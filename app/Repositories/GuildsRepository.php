@@ -29,4 +29,34 @@ class GuildsRepository extends BaseExternalApiRepository implements GuildsReposi
 
         return json_decode($response->body());
     }
+
+    /**
+     * Create a new resource with the api.
+     * 
+     * @param array $attributes
+     * @return bool
+     */
+    public function store(array $attributes) : bool
+    {
+        $uri = $this->makeUrl([$this->endpoints['base'], $this->endpoints['save']]);
+        
+        $response = Http::post($uri, [[
+            'name' => $attributes['name'],
+            'users' => []
+        ]]);
+
+        return $response->ok();
+    }
+
+    /**
+     * Update an existing resource with the api.
+     * 
+     * @param array $attributes
+     * @param int $id
+     * @return void
+     */
+    public function update(array $attributes, int $id) : bool
+    {
+        $uri = $this->makeUrl([$this->endpoints['base'], $this->endpoints['update']]);
+    }
 }

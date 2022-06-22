@@ -47,6 +47,22 @@ class TeamsRepository extends BaseExternalApiRepository implements TeamsReposito
     }
 
     /**
+     * Find a resource by it's name.
+     * 
+     * @param string $name
+     * @return array
+     */
+    public function whereName(string $name) : array
+    {
+        $uri = $this->makeUrl([$this->endpoints['base'], $this->endpoints['all']]);
+        $response = Http::get($uri, [
+            'names' => $name
+        ]);
+
+        return json_decode($response->body());
+    }
+
+    /**
      * Create a new resource with the api.
      * 
      * @param array $attributes

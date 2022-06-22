@@ -39,7 +39,7 @@ class GuildsRepository extends BaseExternalApiRepository implements GuildsReposi
     public function find(int $id) : array
     {
         $uri = $this->makeUrl([$this->endpoints['base'], $this->endpoints['all']]);
-        $response = Http::get($uri, [
+        $response = Http::dd()->get($uri, [
             'ids' => $id
         ]);
 
@@ -94,12 +94,9 @@ class GuildsRepository extends BaseExternalApiRepository implements GuildsReposi
     public function delete(int $id) : bool
     {
         $uri = $this->makeUrl([$this->endpoints['base'], $this->endpoints['delete']]);
+        $uri = $uri . '?ids=' . $id; // lmao (guzzle geen ondersteuning voor query params bij delete).
 
-        $response = Http::delete($uri, $parameters = [
-            'ids' => $id
-        ]);
-
-        dd($response->body());
+        $response = Http::delete($uri);
 
         return $response->ok();
     }

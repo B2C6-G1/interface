@@ -20,6 +20,14 @@ interface GuildsRepositoryInterface
     public function find(int $id) : array;
 
     /**
+     * Find a resource by it's name.
+     * 
+     * @param string $name
+     * @return array
+     */
+    public function whereName(string $name) : array;
+
+    /**
      * Create a new resource with the api.
      * 
      * @param array $attributes

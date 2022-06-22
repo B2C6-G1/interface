@@ -39,8 +39,24 @@ class GuildsRepository extends BaseExternalApiRepository implements GuildsReposi
     public function find(int $id) : array
     {
         $uri = $this->makeUrl([$this->endpoints['base'], $this->endpoints['all']]);
-        $response = Http::dd()->get($uri, [
+        $response = Http::get($uri, [
             'ids' => $id
+        ]);
+
+        return json_decode($response->body());
+    }
+
+    /**
+     * Find a resource by it's name.
+     * 
+     * @param string $name
+     * @return array
+     */
+    public function whereName(string $name) : array
+    {
+        $uri = $this->makeUrl([$this->endpoints['base'], $this->endpoints['all']]);
+        $response = Http::get($uri, [
+            'names' => $name
         ]);
 
         return json_decode($response->body());

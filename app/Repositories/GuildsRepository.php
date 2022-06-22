@@ -84,4 +84,23 @@ class GuildsRepository extends BaseExternalApiRepository implements GuildsReposi
 
         return $response->ok();
     }
+
+    /**
+     * Delete an existing resource with the api.
+     * 
+     * @param int $id
+     * @return bool
+     */
+    public function delete(int $id) : bool
+    {
+        $uri = $this->makeUrl([$this->endpoints['base'], $this->endpoints['delete']]);
+
+        $response = Http::delete($uri, $parameters = [
+            'ids' => $id
+        ]);
+
+        dd($response->body());
+
+        return $response->ok();
+    }
 }

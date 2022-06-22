@@ -27,5 +27,6 @@ Route::prefix('app')->group(function () {
 
         Route::post('store', [GuildsController::class, 'store'])->name('guilds.store');
         Route::put('{id}/update', [GuildsController::class, 'update'])->name('guilds.update');
+        Route::delete('{id}/delete', [GuildsController::class, 'destroy'])->name('guilds.destroy');
     });
 });

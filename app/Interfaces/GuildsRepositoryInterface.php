@@ -35,4 +35,12 @@ interface GuildsRepositoryInterface
      * @return bool
      */
     public function update(array $attributes, int $id) : bool;
+
+    /**
+     * Delete an existing resource with the api.
+     * 
+     * @param int $id
+     * @return bool
+     */
+    public function delete(int $id) : bool;
 }

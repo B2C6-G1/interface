@@ -106,4 +106,23 @@ class GuildsController extends Controller
         return redirect()
             ->route('guilds.index');
     }
+
+    /**
+     * Delete an existing instance of the resource.
+     * 
+     * @param int $id
+     * @return Illuminate\Http\Response
+     */
+    public function destroy(int $id)
+    {
+        if(!$this->repository->delete($id))
+        {
+            return redirect()
+                ->route('guilds.index');
+            // todo add error
+        }
+
+        return redirect()
+            ->route('guilds.index');
+    }
 }

@@ -37,6 +37,12 @@
                 </x-table.data>
                 <x-table.data>
                     <a href="{{ route('guilds.edit', ['id' => $guild->id]) }}">Bewerk</a>
+                    <div class="float-right">
+                        <x-form action="{{ route('guilds.destroy', ['id' => $guild->id]) }}">
+                            @method('DELETE')
+                            <button type="submit">Verwijderen</button>
+                        </x-form>
+                    </div>
                 </x-table.data>
             </x-table.row>
         @endforeach  
